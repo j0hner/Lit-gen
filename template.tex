@@ -1,0 +1,94 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{fancyhdr}
+
+\setcounter{secnumdepth}{0}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{(UserName)}
+\fancyhead[R]{(BookName) -- Rozbor}
+
+
+\begin{document}
+
+    \section{(BookName)}
+        \subsection{Charakteristika}
+            \begin{itemize}
+                \renewcommand\labelitemi{--}
+                \item Autor: (Author)
+                \item Literární druh: (Kind)
+                \item Literární styl: (Style)
+                \item Literární žánr: (Genre)
+            \end{itemize}
+     
+        \subsection{Časový kontext}
+            \begin{itemize}
+                \renewcommand\labelitemi{--}
+                %{ for Name in ContextAuthors }%
+                \item (Name)
+                %{ endfor }%
+            \end{itemize}
+
+        \subsection{Téma}
+                (Topic)
+
+        \subsection{Motivy}
+            \noindent
+            \begin{minipage}{0.3\textwidth}
+            \begin{itemize}
+                \renewcommand\labelitemi{--}
+                %{ for Motive in MotiveCol1 }%
+                \item (Motive)
+                %{ endfor }%
+            \end{itemize}
+            \end{minipage}%
+            \begin{minipage}{0.3\textwidth}
+            \begin{itemize}
+                \renewcommand\labelitemi{--}
+                %{ for Motive in MotiveCol2 }%
+                \item (Motive)
+                %{ endfor }%
+            \end{itemize}
+            \end{minipage}%
+            \begin{minipage}{0.3\textwidth}
+            \begin{itemize}
+                \renewcommand\labelitemi{--}
+                %{ for Motive in MotiveCol3 }%
+                \item (Motive)
+                %{ endfor }%
+            \end{itemize}
+            \end{minipage}
+
+        \subsection{Vypravěč}
+            (NarratorForm)
+
+        \subsection{Kompozice}
+            (Composition)
+
+        \subsection{Jazyk}
+            (LanguageDescription)
+
+    \section{Postavy}
+        %{ for char in Characters }%
+
+        \subsection{(char.Name)}
+
+            \subsubsection{Úspěchy}
+                \begin{itemize}
+                    \renewcommand\labelitemi{--}
+                    %{ for ach in char.Achievements }%
+                    \item (ach)
+                    %{ endfor }%
+                \end{itemize}
+
+            \subsubsection{Vlastnosti}
+                \begin{itemize}
+                    \renewcommand\labelitemi{--}
+                    %{ for trait in char.Traits }%
+                    \item (trait)
+                    %{ endfor }%
+                \end{itemize}
+
+        %{ endfor }%
+\end{document}
