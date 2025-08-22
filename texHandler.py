@@ -1,6 +1,14 @@
+from tempfile import tempdir
 from jinja2 import Environment, FileSystemLoader
 import subprocess
 import os
+import sys
+
+def resource_path(relative_path):
+    """Get the absolute path to the resource (works for dev and PyInstaller)"""
+    if hasattr(sys, '_MEIPASS'):  # Running as EXE
+        return os.path.join(sys._MEIPASS, relative_path)
+    return relative_path
 
 def make_pdf(data, folder, fileName):
 
@@ -9,9 +17,13 @@ def make_pdf(data, folder, fileName):
     for i, motive in enumerate(data["Motives"]):
         data[f"MotiveCol{i % 3 + 1}"].append(motive)
 
+    template_name = 'template.tex'
+    template_dir = os.path.dirname(resource_path(template_name))
+    
+
     # Setup Jinja2 environment with custom delimiters
     env = Environment(
-        loader=FileSystemLoader('.'),
+        loader=FileSystemLoader(template_dir),
         variable_start_string='(',
         variable_end_string=')',
         block_start_string='%{',
@@ -19,7 +31,7 @@ def make_pdf(data, folder, fileName):
         autoescape=False
     )
 
-    template = env.get_template('template.tex')
+    template = env.get_template(template_name)
     full_path = os.path.join(folder, fileName)
     filled_tex = template.render(data)
 

@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import json
 import os
-from texHandler import make_pdf
+from texHandler import make_pdf, resource_path
 
 
 class CharacterFrame(ttk.Frame):
@@ -152,9 +152,10 @@ class App(tk.Tk):
 
         make_pdf(data, folder, f"{data['BookName']}-Rozbor")
 
-        messagebox.showinfo("Success", f"Data saved to {path}")
+        messagebox.showinfo("Úspěch!", f"PDF najdete v: {path}")
 
 
 if __name__ == "__main__":
     app = App()
+    app.iconbitmap(resource_path("icon.ico"))
     app.mainloop()
