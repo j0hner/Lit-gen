@@ -40,7 +40,7 @@ class CharacterFrame(ttk.Frame):
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Book Data Input")
+        self.title("Lit-gen")
         self.geometry("750x750")
 
         # mapping GUI labels -> JSON keys
